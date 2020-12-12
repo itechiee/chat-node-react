@@ -23,6 +23,11 @@ io.on('connection', (socket) => {
     console.log('we have a connection... !!!');
 
     socket.emit('msg', 'testing...');
+
+    socket.on('chatmessage', (msgData) => {
+      io.sockets.emit('chatmessage', msgData);
+    })
+
     socket.on('disconnect', () => {
         console.log('user left...!!!')
     })
