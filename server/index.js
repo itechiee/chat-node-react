@@ -24,8 +24,8 @@ io.on('connection', (socket) => {
 
     socket.emit('msg', 'testing...');
 
-    socket.on('chatmessage', (msgData) => {
-      io.sockets.emit('chatmessage', msgData);
+    socket.on('inputMessage', (msgData) => {
+      io.emit('responseMessage', msgData);
     })
 
     socket.on('disconnect', () => {
